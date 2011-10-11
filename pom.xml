@@ -19,6 +19,8 @@
         <jsp-2-1-version>2.1.v20100127</jsp-2-1-version>
         <selenium-version>2.6.0</selenium-version>
 
+		<!-- properties substituted in src/test/resources/itest.properties -->
+        <installed.browsers>fireFox</installed.browsers>	<!-- comma separated: fireFox,chrome,opera,ie -->
         <firefox.installation.path>C:/Program Files/Mozilla Firefox/firefox.exe</firefox.installation.path>
         <chrome.application.path>C:/Documents and Settings/onl-admin/Local Settings/Application Data/Google/Chrome/Application/chrome.exe</chrome.application.path>
         <chrome.driver.path>C:/Documents and Settings/onl-admin/Local Settings/Application Data/Google/Chrome/chromedriver.exe</chrome.driver.path>
