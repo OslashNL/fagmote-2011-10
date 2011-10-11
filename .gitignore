@@ -4,3 +4,5 @@
 .classpath
 # Ignore local property files
 local.*.properties
+log
+target
