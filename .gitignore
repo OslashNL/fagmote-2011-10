@@ -3,6 +3,7 @@
 .settings
 .classpath
 # Ignore local property files
-local.*.properties
+local.itest.properties
+# Maven and log output
 log
 target
