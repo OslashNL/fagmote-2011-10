@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>no.antares.fagmote</groupId>
+    <artifactId>js-html5</artifactId>
+    <version>2011-10-20</version>
+    <name>Prosjekt for fagmøte</name>
+
+    <packaging>war</packaging>
+
+    <properties>
+        <jetty-version>7.5.1.v20110908</jetty-version>
+        <jsp-2-1-version>2.1.v20100127</jsp-2-1-version>
+        <selenium-version>2.6.0</selenium-version>
+
+        <firefox.installation.path>C:/Program Files/Mozilla Firefox/firefox.exe</firefox.installation.path>
+        <chrome.application.path>C:/Documents and Settings/onl-admin/Local Settings/Application Data/Google/Chrome/Application/chrome.exe</chrome.application.path>
+        <chrome.driver.path>C:/Documents and Settings/onl-admin/Local Settings/Application Data/Google/Chrome/chromedriver.exe</chrome.driver.path>
+
+        <application.contextPath>fagmote</application.contextPath>
+        <application.url.base>http://localhost:8080/${application.contextPath}/</application.url.base>
+    </properties>
+
+    <!-- url>TODO</url -->
+    <inceptionYear>2011</inceptionYear>
+	<description>
+	</description>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+	<!-- TODO
+    <scm>
+        <connection></connection>
+        <developerConnection></developerConnection>
+        <url></url>
+    </scm> -->
+    <organization>
+        <name>Antares Gruppen AS</name>
+        <url>http://www.antares.no/</url>
+    </organization>
+
+	<developers>
+		<developer>
+			<id>tsk</id>
+			<name>Tommy Skodje</name>
+			<email>tsk@antares.no</email>
+            <organization>Antares Gruppen AS (http://www.antares.no)</organization>
+			<roles>
+                <role>Owner</role>
+                <role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+    <build>
+        <finalName>fagmote-js-html5</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty-version}</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webAppConfig>
+                        <contextPath>/${application.contextPath}</contextPath>
+                    </webAppConfig>
+                </configuration>
+            </plugin>
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <optimize>true</optimize>
+                    <debug>true</debug>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*Suite.java</include>
+                    </includes>
+                    <excludes>
+                        <!--  included by suite -->
+                        <exclude>**/*PageTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <!-- LOGGING DEPENDENCIES - LOG4J -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+
+        <!-- JUNIT + MOCKITO FOR TESTING -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JETTY + SELENIUM FOR TESTING -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-plus</artifactId>
+            <version>${jetty-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.opera</groupId>
+            <artifactId>operadriver</artifactId>
+            <version>0.7.3</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>
