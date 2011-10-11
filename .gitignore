@@ -1,0 +1,6 @@
+# Eclipse project files
+.project
+.settings
+.classpath
+# Ignore local property files
+local.*.properties
